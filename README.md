@@ -35,3 +35,21 @@
 ##### Market Data Columns
 - time(datetime64[ns, UTC]) - the current time (in marketdata, all rows are taken at 22:00 UTC)
 - assetCode(object) - a unique id of an asset
+- assetName(category) - the name that corresponds to a group of assetCodes. These may be "Unknown" if the corresponding assetCode does not have any rows in the news data.
+-universe(float64) - a boolean indicating whether or not the instrument on that day will be included in scoring. 
+- volume(float64) - trading volume in shares for the day
+- close(float64) - the close price for the day (not adjusted for splits or dividends)
+- open(float64) - the open price for the day (not adjusted for splits or dividends)
+- returnsClosePrevRaw1(float64) : close-to-close return for one day backward
+- returnsOpenPrevRaw1(float64) : open-to-open return for one day backward
+- returnsClosePrevMktres1(float64) : close-to-close market-residualized return for one day backward
+- returnsOpenPrevMktres1(float64) : open-to-open market-residualized return for one day backward
+- returnsClosePrevRaw10(float64) : close-to-close return for 10-day backward
+- returnsOpenPrevRaw10(float64): open-to-open return for 10-day backward
+- returnsClosePrevMktres10(float64) : close-to-close market-res return for one day backward
+- returnsOpenPrevMktres10(float64) : open-to-open market-res return for 10-day backward
+- returnsOpenNextMktres10(float64): open-to-open 10 day, market-residualized return. This is the target variable used in competition scoring. 
+- The market data has been filtered such that returnsOpenNextMktres10 is always not null.
+
+
+
