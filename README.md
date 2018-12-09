@@ -27,3 +27,11 @@
 - The data includes a subset of US-listed instruments.
 - The set of included instruments changes daily and is determined based on the amount traded and the availability of information. 
 - There may therefore be gaps in the data provided.
+- returns are always calculated either open-to-open or close-to-close.
+- Returns are either raw, meaning that the data is not adjusted against any benchmark, or market-residualized (Mktres), meaning that the movement of the market as a whole has been accounted for, leaving only movements inherent to the instrument.
+- Returns can be calculated over any arbitrary interval. Provided here are 1 day and 10 day horizons.
+- Returns are tagged with 'Prev' if they are backwards looking in time, or 'Next' if forwards looking.
+
+##### Market Data Columns
+- time(datetime64[ns, UTC]) - the current time (in marketdata, all rows are taken at 22:00 UTC)
+- assetCode(object) - a unique id of an asset
