@@ -23,3 +23,7 @@
 - During stage one, the leaderboard will show performance on a historical period from 2017-01-01 to 2018-07-31.
 - During stage two, Kaggle will re-run participants' selected Kernels on approximately six months of future data.
 
+#### Market Data
+- The data includes a subset of US-listed instruments.
+- The set of included instruments changes daily and is determined based on the amount traded and the availability of information. 
+- There may therefore be gaps in the data provided.
