@@ -14,4 +14,12 @@
  
  
 ### Data
-- 
+- There are two sources of data
+- Market data (2007 to present) provided by Intrinio contains financial market information such as opening price, closing price, trading volume, calculated returns, etc.
+- News data (2007 to present) Source: Thomson Reuters - contains information about news articles/alerts published about assets, such as article details, sentiment, and other commentary.
+- Each asset is identified by an assetCode
+- a single company may have multiple assetCodes
+- synthetic future data within competition data to simulate 
+- During stage one, the leaderboard will show performance on a historical period from 2017-01-01 to 2018-07-31.
+- During stage two, Kaggle will re-run participants' selected Kernels on approximately six months of future data.
+
