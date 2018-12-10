@@ -52,4 +52,51 @@
 - The market data has been filtered such that returnsOpenNextMktres10 is always not null.
 
 
+#### News Data
+The news data contains information at both the news article level and asset level 
+- time(datetime64[ns, UTC]) - UTC timestamp showing when the data was available on the feed (second precision)
+- sourceTimestamp(datetime64[ns, UTC]) - UTC timestamp of this news item when it was created
+- firstCreated(datetime64[ns, UTC]) - UTC timestamp for the first version of the item
+- sourceId(object) - an Id for each news item
+- headline(object) - the item's headline
+- urgency(int8) - differentiates story types (1: alert, 3: article)
+- takeSequence(int16) - the take sequence number of the news item, starting at 1. For a given story, alerts and articles have separate sequences.
+- provider(category) - identifier for the organization which provided the news item (e.g. RTRS for Reuters News, BSW for Business Wire)
+- subjects(category) - topic codes and company identifiers that relate to this news item. Topic codes describe the news item's subject matter. These can cover asset classes, geographies, events, industries/sectors, and other types.
+- audiences(category) - identifies which desktop news product(s) the news item belongs to. They are typically tailored to specific audiences. (e.g. "M" for Money International News Service and "FB" for French General News Service)
+- bodySize(int32) - the size of the current version of the story body in characters
+- companyCount(int8) - the number of companies explicitly listed in the news item in the subjects field
+- headlineTag(object) - the Thomson Reuters headline tag for the news item
+- marketCommentary(bool) - boolean indicator that the item is discussing general market conditions, such as "After the Bell" summaries
+- sentenceCount(int16) - the total number of sentences in the news item. Can be used in conjunction with firstMentionSentence to determine the relative position of the first mention in the item.
+- wordCount(int32) - the total number of lexical tokens (words and punctuation) in the news item
+- assetCodes(category) - list of assets mentioned in the item
+- assetName(category) - name of the asset
+
+- firstMentionSentence(int16) - the first sentence, starting with the headline, in which the scored asset is mentioned.
+
+    1: headline
+    2: first sentence of the story body
+    3: second sentence of the body, etc
+    0: the asset being scored was not found in the news item's headline or body text. As a result, the entire news item's text (headline + body) will be used to determine the sentiment score.
+
+- relevance(float32) - a decimal number indicating the relevance of the news item to the asset. It ranges from 0 to 1. If the asset is mentioned in the headline, the relevance is set to 1. When the item is an alert (urgency == 1), relevance should be gauged by firstMentionSentence instead.
+
+- sentimentClass(int8) - indicates the predominant sentiment class for this news item with respect to the asset. The indicated class is the one with the highest probability.
+
+- sentimentNegative(float32) - probability that the sentiment of the news item was negative for the asset
+- sentimentNeutral(float32) - probability that the sentiment of the news item was neutral for the asset
+- sentimentPositive(float32) - probability that the sentiment of the news item was positive for the asset
+- sentimentWordCount(int32) - the number of lexical tokens in the sections of the item text that are deemed relevant to the asset. This can be used in conjunction with wordCount to determine the proportion of the news item discussing the asset.
+- noveltyCount12H(int16) - The 12 hour novelty of the content within a news item on a particular asset. It is calculated by comparing it with the asset-specific text over a cache of previous news items that contain the asset.
+
+
+    
+
+
+
+
+
+
+
 
