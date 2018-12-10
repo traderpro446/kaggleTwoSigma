@@ -89,6 +89,16 @@ The news data contains information at both the news article level and asset leve
 - sentimentPositive(float32) - probability that the sentiment of the news item was positive for the asset
 - sentimentWordCount(int32) - the number of lexical tokens in the sections of the item text that are deemed relevant to the asset. This can be used in conjunction with wordCount to determine the proportion of the news item discussing the asset.
 - noveltyCount12H(int16) - The 12 hour novelty of the content within a news item on a particular asset. It is calculated by comparing it with the asset-specific text over a cache of previous news items that contain the asset.
+- noveltyCount12H(int16) - The 12 hour novelty of the content within a news item on a particular asset. It is calculated by comparing it with the asset-specific text over a cache of previous news items that contain the asset.
+- noveltyCount24H(int16) - same as above, but for 24 hours
+- noveltyCount3D(int16) - same as above, but for 3 days
+- noveltyCount5D(int16) - same as above, but for 5 days
+- noveltyCount7D(int16) - same as above, but for 7 days
+- volumeCounts12H(int16) - the 12 hour volume of news for each asset. A cache of previous news items is maintained and the number of news items that mention the asset within each of five historical periods is calculated.
+ -volumeCounts24H(int16) - same as above, but for 24 hours
+ - volumeCounts3D(int16) - same as above, but for 3 days
+- volumeCounts5D(int16) - same as above, but for 5 days
+- volumeCounts7D(int16) - same as above, but for 7 days
 
 
     
